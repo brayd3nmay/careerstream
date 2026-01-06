@@ -66,8 +66,12 @@ export async function POST(req: Request) {
     const textContent = generateResultsEmailText({ traitScores, topTraits });
 
     // Send email using Resend
+    // Note: Using Resend's onboarding address until domain is verified
+    // To send from your own domain, verify it at https://resend.com/domains
+    const fromAddress = process.env.RESEND_FROM_EMAIL || "Careerstream <onboarding@resend.dev>";
+    
     const { data, error } = await resend.emails.send({
-      from: "Careerstream <noreply@careerstream.com>",
+      from: fromAddress,
       to: [email],
       subject: "Your Personality Assessment Results - Careerstream",
       html: htmlContent,
