@@ -3,9 +3,6 @@ import { generateResultsEmailHtml, generateResultsEmailText } from "@/lib/emails
 import { PersonalityTrait } from "@/lib/personality/questions";
 import { TraitScore } from "@/lib/personality/scoring";
 
-// Initialize Resend client
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Request body type
 interface SendResultsRequest {
   email: string;
@@ -60,6 +57,9 @@ export async function POST(req: Request) {
         { status: 500 }
       );
     }
+
+    // Initialize Resend client (done here to avoid build-time errors)
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Generate email content
     const htmlContent = generateResultsEmailHtml({ traitScores, topTraits });
