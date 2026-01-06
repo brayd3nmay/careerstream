@@ -1,26 +1,212 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Dark theme base colors */
+  --color-background: #0a0a0a;
+  --color-foreground: #fafafa;
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-instrument-serif);
+  --font-mono: ui-monospace, monospace;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Major Third Typescale (1.25 ratio) */
+  --font-size-xs: 0.64rem;
+  --font-size-sm: 0.8rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.563rem;
+  --font-size-2xl: 1.953rem;
+  --font-size-3xl: 2.441rem;
+  --font-size-4xl: 3.052rem;
+  --font-size-5xl: 3.815rem;
+  --font-size-6xl: 4.768rem;
+
+  /* Dark charcoal palette */
+  --color-cs-charcoal-50: #fafafa;
+  --color-cs-charcoal-100: #e5e5e5;
+  --color-cs-charcoal-200: #d4d4d4;
+  --color-cs-charcoal-300: #a3a3a3;
+  --color-cs-charcoal-400: #737373;
+  --color-cs-charcoal-500: #525252;
+  --color-cs-charcoal-600: #3d3d3d;
+  --color-cs-charcoal-700: #262626;
+  --color-cs-charcoal-800: #1a1a1a;
+  --color-cs-charcoal-900: #121212;
+  --color-cs-charcoal-950: #0a0a0a;
+  
+  /* Blue accent colors */
+  --color-cs-blue-600: #2563eb;
+  --color-cs-blue-500: #3b82f6;
+  --color-cs-blue-400: #60a5fa;
+  --color-cs-blue-300: #93c5fd;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* Focus ring styling */
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Serif headings */
+.font-serif {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+}
+
+/* Major Third Typography Classes */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+.text-4xl { font-size: var(--font-size-4xl); }
+.text-5xl { font-size: var(--font-size-5xl); }
+.text-6xl { font-size: var(--font-size-6xl); }
+
+/* Industrial Grid Background - Dark */
+.industrial-grid {
+  background-color: #0a0a0a;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Industrial Grid with accent lines */
+.industrial-grid-accent {
+  background-color: #0a0a0a;
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 240px 240px, 240px 240px, 60px 60px, 60px 60px;
+}
+
+/* Hero background pattern - Industrial Dark */
+.hero-pattern {
+  background-color: #0a0a0a;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(ellipse at 20% 80%, rgba(59, 130, 246, 0.15) 0, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(37, 99, 235, 0.2) 0, transparent 50%);
+  background-size: 60px 60px, 60px 60px, 100% 100%, 100% 100%;
+}
+
+/* Section grid - Dark */
+.section-grid {
+  background-color: #0a0a0a;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Section grid alternate - Slightly lighter */
+.section-grid-alt {
+  background-color: #121212;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Industrial border accent */
+.border-accent {
+  border-left: 3px solid #3b82f6;
+}
+
+/* Animated underline for links */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Fade in animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+
+/* Subtle grain texture overlay */
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Number styling for steps */
+.step-number {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-style: italic;
+}
+
+/* Glow effect for accent elements */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
 }
