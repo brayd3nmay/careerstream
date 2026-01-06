@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 import { generateResultsEmailHtml, generateResultsEmailText } from "@/lib/emails/personality-results";
-import { TraitScore, PersonalityTrait } from "@/lib/personality/questions";
+import { PersonalityTrait } from "@/lib/personality/questions";
+import { TraitScore } from "@/lib/personality/scoring";
 
 // Initialize Resend client
 const resend = new Resend(process.env.RESEND_API_KEY);
